@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.BaseCommands.TankDriveCommand;
 import frc.robot.subsystems.TankDriveTrainSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -32,8 +33,15 @@ public class RobotContainer {
         m_driverControllerRight.getY()
       )
     );
-    m_chooser.setDefaultOption("Default Auto", new TankDriveCommand(m_driveTrain, 0, 0).withTimeout(5));
-    
+
+    m_chooser.setDefaultOption("I dont wanna go fast", new SequentialCommandGroup(
+      new TankDriveCommand(m_driveTrain, 0.5, 0.5).withTimeout(5),
+      new TankDriveCommand(m_driveTrain, 0, 0)
+    ));
+    m_chooser.addOption("Full Send or no send", new SequentialCommandGroup(
+      new TankDriveCommand(m_driveTrain, 1, 1).withTimeout(5),
+      new TankDriveCommand(m_driveTrain, 0, 0)
+    ));
 
   }
 

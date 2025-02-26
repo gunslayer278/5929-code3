@@ -1,1 +1,3 @@
-Code for The FRC team 5929 
+# Team 5929 - Raider Robotics
+
+A codebase for our FRC robot using Java WPILib.
