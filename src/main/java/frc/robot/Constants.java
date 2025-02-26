@@ -11,5 +11,8 @@ public final class Constants {
     public static final int kRightSlavePort = 2;
   }
 
-public static int kDriverControllerPort; 
+  public final class OIConstants {
+    public static final int kDriverControllerPortLeft = 1;
+    public static final int kDriverControllerPortRight = 2;
+  }
 }

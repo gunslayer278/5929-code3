@@ -19,8 +19,8 @@ public class RobotContainer {
 
   
   private void configureBindings() {
-    Joystick m_driverControllerLeft = new Joystick(Constants.kDriverControllerPort);
-    Joystick m_driverControllerRight = new Joystick(Constants.kDriverControllerPort);
+    Joystick m_driverControllerLeft = new Joystick(Constants.OIConstants.kDriverControllerPortLeft);
+    Joystick m_driverControllerRight = new Joystick(Constants.OIConstants.kDriverControllerPortRight);
     
     m_driveTrain.setDefaultCommand(
       new TankDriveCommand(
