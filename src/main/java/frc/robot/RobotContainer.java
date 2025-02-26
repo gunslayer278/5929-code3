@@ -8,12 +8,15 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.BaseCommands.TankDriveCommand;
 import frc.robot.subsystems.TankDriveTrainSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class RobotContainer {
-
   private final TankDriveTrainSubsystem m_driveTrain = new TankDriveTrainSubsystem();
+  private final SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public RobotContainer() {
+    SmartDashboard.putData("Auto mode", m_chooser);
     configureBindings();
   }
 
@@ -29,12 +32,13 @@ public class RobotContainer {
         m_driverControllerRight.getY()
       )
     );
+    m_chooser.setDefaultOption("Default Auto", new TankDriveCommand(m_driveTrain, 0, 0).withTimeout(5));
     
 
   }
 
   
   public Command getAutonomousCommand() {
-    return null; 
+    return null;
   }
 }
