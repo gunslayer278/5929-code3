@@ -4,10 +4,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.commands.BaseCommands.TankDriveCommand;
+import frc.robot.subsystems.TankDriveTrainSubsystem;
 
 public class RobotContainer {
+
+  private final TankDriveTrainSubsystem m_driveTrain = new TankDriveTrainSubsystem();
 
   public RobotContainer() {
     configureBindings();
@@ -15,6 +19,17 @@ public class RobotContainer {
 
   
   private void configureBindings() {
+    Joystick m_driverControllerLeft = new Joystick(Constants.kDriverControllerPort);
+    Joystick m_driverControllerRight = new Joystick(Constants.kDriverControllerPort);
+    
+    m_driveTrain.setDefaultCommand(
+      new TankDriveCommand(
+        m_driveTrain,
+        m_driverControllerLeft.getY(),
+        m_driverControllerRight.getY()
+      )
+    );
+    
 
   }
 
