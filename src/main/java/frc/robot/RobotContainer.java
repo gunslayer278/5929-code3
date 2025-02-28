@@ -7,13 +7,17 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.Constants;
+import frc.robot.commands.BaseCommands.SetElevatorCommands;
 import frc.robot.commands.BaseCommands.TankDriveCommand;
 import frc.robot.subsystems.TankDriveTrainSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class RobotContainer {
   private final TankDriveTrainSubsystem m_driveTrain = new TankDriveTrainSubsystem();
+  private final ElevatorSubsystem m_elevator = new ElevatorSubsystem();
   private final SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public RobotContainer() {
@@ -35,6 +39,13 @@ public class RobotContainer {
         m_driverControllerRight.getY()
       )
     );
+    m_elevator.setDefaultCommand(
+      new SetElevatorCommands(
+        m_elevator,
+        m_accessoryJoystick.getY()
+      )
+    );
+    
   
     
 
