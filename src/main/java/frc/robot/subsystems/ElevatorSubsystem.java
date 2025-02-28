@@ -25,4 +25,7 @@ public class ElevatorSubsystem  extends SubsystemBase{
         SparkMaxConfigElevatorSlave.idleMode(IdleMode.kBrake);
         SparkMaxConfigElevatorSlave.follow(ElevatorMaster);
 }
+    public void setElevatorSpeed(double speed) {
+        ElevatorMaster.set(speed);
+    }
 }
