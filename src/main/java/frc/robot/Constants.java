@@ -10,6 +10,10 @@ public final class Constants {
     public static final int kRightMasterPort = 1;
     public static final int kRightSlavePort = 2;
   }
+  public final class Elevator {
+    public static final int kElevatorMasterPort = 5;
+    public static final int kElevatorSlavePort = 6;
+  }
 
   public final class OIConstants {
     public static final int kDriverControllerPortLeft = 1;
