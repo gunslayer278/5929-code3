@@ -36,17 +36,13 @@ public class TankDriveCommand extends Command {
     
     public void execute() {
         if (m_useSuppliers) {
-            double leftSpeed = -m_leftSpeedSupplier.getAsDouble(); 
+            double leftSpeed = m_leftSpeedSupplier.getAsDouble(); 
             double rightSpeed = -m_rightSpeedSupplier.getAsDouble(); 
             
             m_subsystem.setSpeed(leftSpeed, rightSpeed);
-            SmartDashboard.putNumber("Left Speed Request command", leftSpeed);
-            SmartDashboard.putNumber("Right Speed Request command", rightSpeed);
         } else {
             // Use constant values (for autonomous)
             m_subsystem.setSpeed(m_leftSpeed, m_rightSpeed);
-            SmartDashboard.putNumber("Left Speed Request command", m_leftSpeed);
-            SmartDashboard.putNumber("Right Speed Request command", m_rightSpeed);
         }
     }
     

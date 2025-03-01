@@ -49,8 +49,6 @@ public class TankDriveTrainSubsystem extends SubsystemBase {
     }
 
     public void periodic() {
-        SmartDashboard.putNumber("Left Speed", LeftMaster.get());
-        SmartDashboard.putNumber("Right Speed", RightMaster.get());
     }
     public void setLeftSpeed(double speed) {
         LeftMaster.set(speed);  // Set the speed of the left motor
@@ -61,8 +59,6 @@ public class TankDriveTrainSubsystem extends SubsystemBase {
     public void setSpeed(double leftSpeed, double rightSpeed) {
         setLeftSpeed(leftSpeed);
         setRightSpeed(rightSpeed);  // Set the speed of both motors
-        SmartDashboard.putNumber("Right Speed Request", rightSpeed);
-        SmartDashboard.putNumber("Left Speed Request", leftSpeed);
     }
     public void StopRobot() {
         LeftMaster.set(0);
