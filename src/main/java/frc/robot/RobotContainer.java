@@ -49,11 +49,11 @@ public class RobotContainer {
     
 
     m_chooser.setDefaultOption("I dont wanna go fast", new SequentialCommandGroup(
-      new TankDriveCommand(m_driveTrain, 0.5, 0.5).withTimeout(5),
+      new TankDriveCommand(m_driveTrain, -0.5, -0.5).withTimeout(1),
       new TankDriveCommand(m_driveTrain, 0, 0)
     ));
     m_chooser.addOption("Full Send or no send", new SequentialCommandGroup(
-      new TankDriveCommand(m_driveTrain, 1, 1).withTimeout(5),
+      new TankDriveCommand(m_driveTrain, -1, -1).withTimeout(1),
       new TankDriveCommand(m_driveTrain, 0, 0)
     ));
 
