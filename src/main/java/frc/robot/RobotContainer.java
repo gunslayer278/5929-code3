@@ -51,8 +51,8 @@ public class RobotContainer {
         () -> m_accessoryJoystick.getY()));
     
   
-    m_intakeButton.whileTrue(new SetIntakeCommand(m_intake, 1));
-    m_outtakeButton.whileTrue(new SetIntakeCommand(m_intake, -1));
+    m_intakeButton.whileTrue(new SetIntakeCommand(m_intake, .2));
+    m_outtakeButton.whileTrue(new SetIntakeCommand(m_intake, -.2));
 
     m_chooser.setDefaultOption("I dont wanna go fast", new SequentialCommandGroup(
       new TankDriveCommand(m_driveTrain, 0.75, -0.75).withTimeout(1),
