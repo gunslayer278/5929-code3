@@ -34,5 +34,7 @@ public class ElevatorSubsystem  extends SubsystemBase{
     }
 
     public void periodic() {
+        SmartDashboard.putNumber("Elevator Master Current", ElevatorMaster.getOutputCurrent());
+        SmartDashboard.putNumber("Elevator Slave Current", ElevatorSlave.getOutputCurrent());
     }
 }

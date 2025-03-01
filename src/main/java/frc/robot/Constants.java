@@ -23,7 +23,7 @@ public final class Constants {
     public static int kOuttakeButton = 3;
   }
   public final class Intake{
-    public static final int kIntakePort = 7;   //accessory trigger // buton 3 to reverse
+    public static final int kIntakePort = 7;   
   }
   public final class RotatingArm{
     public static final int kRotatorPort = 8; // Pov up and Pov down
