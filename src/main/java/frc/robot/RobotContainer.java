@@ -41,9 +41,9 @@ public class RobotContainer {
     m_elevator.setDefaultCommand(
       new SetElevatorCommands(
         m_elevator,
-        m_accessoryJoystick.getY()
-      )
-    );
+        () -> m_accessoryJoystick.getY()
+  )
+);
     
   
     
