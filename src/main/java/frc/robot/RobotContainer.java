@@ -31,12 +31,11 @@ public class RobotContainer {
     Joystick m_driverControllerRight = new Joystick(Constants.OIConstants.kDriverControllerPortRight);
     Joystick m_accessoryJoystick = new Joystick(Constants.OIConstants.m_accessoryJoystick);
     
-
     m_driveTrain.setDefaultCommand(
       new TankDriveCommand(
         m_driveTrain,
-        m_driverControllerLeft.getY(),
-        m_driverControllerRight.getY()
+        () -> m_driverControllerLeft.getY(),
+        () -> m_driverControllerRight.getY()
       )
     );
     m_elevator.setDefaultCommand(
