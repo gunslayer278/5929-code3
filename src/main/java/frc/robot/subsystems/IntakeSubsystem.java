@@ -32,6 +32,6 @@ public class IntakeSubsystem extends SubsystemBase {
 
     @Override
     public void periodic() {
-        SmartDashboard.putNumber("Intake Current", intakeMotor.getOutputCurrent());
+        SmartDashboard.putNumber("Intake Current", intakeMotor.getAppliedOutput());
     }
 }

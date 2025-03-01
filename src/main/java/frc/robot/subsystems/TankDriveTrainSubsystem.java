@@ -49,10 +49,10 @@ public class TankDriveTrainSubsystem extends SubsystemBase {
     }
 
     public void periodic() {
-        SmartDashboard.putNumber("Left Master Current", LeftMaster.getOutputCurrent());
-        SmartDashboard.putNumber("Left Slave Current", LeftSlave.getOutputCurrent());
-        SmartDashboard.putNumber("Right Master Current", RightMaster.getOutputCurrent());
-        SmartDashboard.putNumber("Right Slave Current", RightSlave.getOutputCurrent());
+        SmartDashboard.putNumber("Left Master Current", LeftMaster.getAppliedOutput());
+        SmartDashboard.putNumber("Left Slave Current", LeftSlave.getAppliedOutput());
+        SmartDashboard.putNumber("Right Master Current", RightMaster.getAppliedOutput());
+        SmartDashboard.putNumber("Right Slave Current", RightSlave.getAppliedOutput());
     }
     public void setLeftSpeed(double speed) {
         LeftMaster.set(speed);  // Set the speed of the left motor
