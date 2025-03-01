@@ -5,7 +5,7 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import frc.robot.Constants;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ElevatorSubsystem  extends SubsystemBase{
@@ -27,5 +27,9 @@ public class ElevatorSubsystem  extends SubsystemBase{
 }
     public void setElevatorSpeed(double speed) {
         ElevatorMaster.set(speed);
+    }
+
+    public void periodic() {
+        SmartDashboard.putNumber("Elevator Speed", ElevatorMaster.get());
     }
 }
