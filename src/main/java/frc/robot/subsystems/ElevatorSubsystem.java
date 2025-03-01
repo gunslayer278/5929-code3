@@ -30,6 +30,5 @@ public class ElevatorSubsystem  extends SubsystemBase{
     }
 
     public void periodic() {
-        SmartDashboard.putNumber("Elevator Speed", ElevatorMaster.get());
     }
 }
