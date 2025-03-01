@@ -19,6 +19,8 @@ public final class Constants {
     public static final int kDriverControllerPortLeft = 1;
     public static final int kDriverControllerPortRight = 2;
     public static final int m_accessoryJoystick = 0;
+    public static int kIntakeButton = 1;
+    public static int kOuttakeButton = 3;
   }
   public final class Intake{
     public static final int kIntakePort = 7;   //accessory trigger
