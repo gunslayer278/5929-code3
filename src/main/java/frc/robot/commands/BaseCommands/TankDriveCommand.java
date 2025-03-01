@@ -1,5 +1,6 @@
 package frc.robot.commands.BaseCommands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.TankDriveTrainSubsystem;
 
@@ -16,6 +17,8 @@ public class TankDriveCommand extends Command {
     }
     public void execute() {
         m_subsystem.setSpeed(m_leftSpeed, m_rightSpeed);
+        SmartDashboard.putNumber("Left Speed Request command", m_leftSpeed);
+        SmartDashboard.putNumber("Right Speed Request command", m_rightSpeed);
     }
     public void end(boolean interrupted) {
         m_subsystem.StopRobot();
