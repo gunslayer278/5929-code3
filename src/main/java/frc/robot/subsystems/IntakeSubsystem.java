@@ -31,6 +31,6 @@ public class IntakeSubsystem extends SubsystemBase {
     public void periodic() {
         // Victor SPX doesn't directly provide current measurement like SparkMax
         // You would need a PDP/PDH to monitor current
-        SmartDashboard.putNumber("Intake Output", intakeMotor.get());
+        SmartDashboard.putNumber("Intake Output", intakeMotor.getMotorOutputPercent());
     }
 }
