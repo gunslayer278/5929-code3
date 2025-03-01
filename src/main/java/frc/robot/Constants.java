@@ -20,4 +20,10 @@ public final class Constants {
     public static final int kDriverControllerPortRight = 2;
     public static final int m_accessoryJoystick = 0;
   }
+  public final class Intake{
+    public static final int kIntakePort = 7;   //accessory trigger
+  }
+  public final class RotatingArm{
+    public static final int kRotatorPort = 8; // Pov up and Pov down
+  }
 }
