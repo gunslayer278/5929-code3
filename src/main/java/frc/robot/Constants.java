@@ -18,6 +18,6 @@ public final class Constants {
   public final class OIConstants {
     public static final int kDriverControllerPortLeft = 1;
     public static final int kDriverControllerPortRight = 2;
-    public static final int m_accessoryJoystick = 3;
+    public static final int m_accessoryJoystick = 0;
   }
 }
