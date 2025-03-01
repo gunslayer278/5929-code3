@@ -18,12 +18,16 @@ public class ElevatorSubsystem  extends SubsystemBase{
         ElevatorMaster = new SparkMax(Constants.Elevator.kElevatorMasterPort, MotorType.kBrushed);
         ElevatorSlave = new SparkMax(Constants.Elevator.kElevatorSlavePort, MotorType.kBrushed);
 
+
         SparkMaxConfigMaster = new SparkMaxConfig();
         SparkMaxConfigMaster.idleMode(IdleMode.kBrake);
+        ElevatorMaster.configure(SparkMaxConfigMaster, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
 
         SparkMaxConfigElevatorSlave = new SparkMaxConfig();
         SparkMaxConfigElevatorSlave.idleMode(IdleMode.kBrake);
         SparkMaxConfigElevatorSlave.follow(ElevatorMaster);
+        ElevatorSlave.configure(SparkMaxConfigElevatorSlave, SparkMax.ResetMode.kResetSafeParameters, SparkMax.PersistMode.kPersistParameters);
+
 }
     public void setElevatorSpeed(double speed) {
         ElevatorMaster.set(speed);
