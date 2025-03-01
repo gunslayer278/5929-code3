@@ -40,9 +40,13 @@ public class TankDriveCommand extends Command {
             double rightSpeed = -m_rightSpeedSupplier.getAsDouble(); 
             
             m_subsystem.setSpeed(leftSpeed, rightSpeed);
+            SmartDashboard.putNumber("Left Speed Joystick", leftSpeed);
+            SmartDashboard.putNumber("Right Speed Joystick", rightSpeed);
         } else {
             // Use constant values (for autonomous)
             m_subsystem.setSpeed(m_leftSpeed, m_rightSpeed);
+            SmartDashboard.putNumber("Left Speed Auto", m_leftSpeed);
+            SmartDashboard.putNumber("Right Speed Auto", m_rightSpeed);
         }
     }
     
