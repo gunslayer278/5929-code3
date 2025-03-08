@@ -8,11 +8,14 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.Constants;
 import frc.robot.commands.BaseCommands.SetElevatorCommands;
 import frc.robot.commands.BaseCommands.SetIntakeCommand;
+import frc.robot.commands.BaseCommands.SetPivot;
 import frc.robot.commands.BaseCommands.TankDriveCommand;
 import frc.robot.subsystems.TankDriveTrainSubsystem;
+import frc.robot.subsystems.piviotSubsytem;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -22,6 +25,7 @@ public class RobotContainer {
   private final TankDriveTrainSubsystem m_driveTrain = new TankDriveTrainSubsystem();
   private final ElevatorSubsystem m_elevator = new ElevatorSubsystem();
   private final IntakeSubsystem m_intake = new IntakeSubsystem();
+  private final piviotSubsytem m_pivotSubsystem = new piviotSubsytem();
   private final SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public RobotContainer() {
@@ -36,6 +40,9 @@ public class RobotContainer {
     Joystick m_accessoryJoystick = new Joystick(Constants.OIConstants.m_accessoryJoystick);
     JoystickButton m_intakeButton = new JoystickButton(m_accessoryJoystick, Constants.OIConstants.kIntakeButton);
     JoystickButton m_outtakeButton = new JoystickButton(m_accessoryJoystick, Constants.OIConstants.kOuttakeButton);
+    POVButton m_pivotButtonUp = new POVButton(m_accessoryJoystick, 0);
+    POVButton m_pivotButtonDown = new POVButton(m_accessoryJoystick, 180);
+
 
     
     m_driveTrain.setDefaultCommand(
@@ -48,11 +55,14 @@ public class RobotContainer {
     m_elevator.setDefaultCommand(
       new SetElevatorCommands(
         m_elevator,
-        () -> m_accessoryJoystick.getY()));
+        () -> m_accessoryJoystick.getY()/2));
     
   
     m_intakeButton.whileTrue(new SetIntakeCommand(m_intake, 1));
     m_outtakeButton.whileTrue(new SetIntakeCommand(m_intake, -1));
+
+    m_pivotButtonUp.whileTrue(new SetPivot(m_pivotSubsystem, .2));
+    m_pivotButtonDown.whileTrue(new SetPivot(m_pivotSubsystem, -.2));
 
     m_chooser.setDefaultOption("I dont wanna go fast", new SequentialCommandGroup(
       new TankDriveCommand(m_driveTrain, 0.75, -0.75).withTimeout(1),
