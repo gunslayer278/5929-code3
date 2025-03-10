@@ -55,7 +55,7 @@ public class RobotContainer {
     m_elevator.setDefaultCommand(
       new SetElevatorCommands(
         m_elevator,
-        () -> m_accessoryJoystick.getY()/2));
+        () -> m_accessoryJoystick.getY()));
     
   
     m_intakeButton.whileTrue(new SetIntakeCommand(m_intake, .2));

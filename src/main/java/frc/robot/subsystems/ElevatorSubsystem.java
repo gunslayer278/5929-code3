@@ -31,10 +31,12 @@ public class ElevatorSubsystem  extends SubsystemBase{
 }
     public void setElevatorSpeed(double speed) {
         ElevatorMaster.set(speed);
+        SmartDashboard.putNumber("Elevator Speed", speed);
     }
 
     public void periodic() {
         SmartDashboard.putNumber("Elevator Master Current", ElevatorMaster.getAppliedOutput());
         SmartDashboard.putNumber("Elevator Slave Current", ElevatorSlave.getAppliedOutput());
+
     }
 }
