@@ -58,8 +58,8 @@ public class RobotContainer {
         () -> m_accessoryJoystick.getY()));
     
   
-    m_intakeButton.whileTrue(new SetIntakeCommand(m_intake, .2));
-    m_outtakeButton.whileTrue(new SetIntakeCommand(m_intake, -.2));
+    m_intakeButton.whileTrue(new SetIntakeCommand(m_intake, 1));
+    m_outtakeButton.whileTrue(new SetIntakeCommand(m_intake, -1));
 
     m_pivotButtonUp.whileTrue(new SetPivot(m_pivotSubsystem, .2));
     m_pivotButtonDown.whileTrue(new SetPivot(m_pivotSubsystem, -.2));
