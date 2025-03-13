@@ -40,8 +40,8 @@ public class RobotContainer {
     Joystick m_accessoryJoystick = new Joystick(Constants.OIConstants.m_accessoryJoystick);
     JoystickButton m_intakeButton = new JoystickButton(m_accessoryJoystick, Constants.OIConstants.kIntakeButton);
     JoystickButton m_outtakeButton = new JoystickButton(m_accessoryJoystick, Constants.OIConstants.kOuttakeButton);
-    POVButton m_pivotButtonUp = new POVButton(m_accessoryJoystick, 90);
-    POVButton m_pivotButtonDown = new POVButton(m_accessoryJoystick, 270);
+    POVButton m_pivotButtonUp = new POVButton(m_accessoryJoystick, 0);
+    POVButton m_pivotButtonDown = new POVButton(m_accessoryJoystick, 180);
 
 
     
@@ -55,7 +55,7 @@ public class RobotContainer {
     m_elevator.setDefaultCommand(
       new SetElevatorCommands(
         m_elevator,
-        () -> m_accessoryJoystick.getY()/2));
+        () -> m_accessoryJoystick.getY()));
     
   
     m_intakeButton.whileTrue(new SetIntakeCommand(m_intake, 1));
